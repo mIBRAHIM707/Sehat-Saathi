@@ -1,7 +1,6 @@
 # patients/models.py
 from django.db import models # type: ignore
 from doctors.models import Doctor
-from appointments.models import Appointment
 
 class Patient(models.Model):
     first_name = models.CharField(max_length=255)
@@ -22,7 +21,7 @@ class Patient(models.Model):
 class Medical_Record(models.Model):
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
     doctor = models.ForeignKey(Doctor, on_delete=models.SET_NULL, null=True, blank=True)
-    appointment = models.ForeignKey(Appointment, on_delete=models.SET_NULL, null=True, blank=True)
+    appointment = models.ForeignKey('appointments.Appointment', on_delete=models.SET_NULL, null=True, blank=True)
     record_date = models.DateTimeField(auto_now_add=True)
     diagnosis = models.TextField(blank=True)
     treatment = models.TextField(blank=True)
