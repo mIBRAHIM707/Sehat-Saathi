@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bill List</title>
+</head>
+<body>
+    <h1>Bill List</h1>
+    <ul>
+        {% for bill in bills %}
+            <li><a href="{% url 'bill_detail' bill.bill_id %}">Bill {{ bill.bill_id }}</a> - {{ bill.patient }} - ${{ bill.amount }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
