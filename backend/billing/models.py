@@ -1,5 +1,5 @@
 # billing/models.py
-from django.db import models
+from django.db import models # type: ignore
 from patients.models import Patient
 from appointments.models import Appointment
 

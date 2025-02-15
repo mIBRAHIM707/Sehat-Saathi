@@ -1,3 +1,8 @@
-from django.contrib import admin
+# patients/admin.py
+from django.contrib import admin # type: ignore
+from .models import Patient, Medical_Record, Prescription, LabTest
 
-# Register your models here.
+admin.site.register(Patient)
+admin.site.register(Medical_Record)
+admin.site.register(Prescription)
+admin.site.register(LabTest)

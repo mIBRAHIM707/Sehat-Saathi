@@ -1,3 +1,5 @@
-from django.contrib import admin
+# billing/admin.py
+from django.contrib import admin # type: ignore
+from .models import Bill
 
-# Register your models here.
+admin.site.register(Bill)
