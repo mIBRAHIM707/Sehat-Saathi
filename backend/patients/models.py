@@ -1,7 +1,7 @@
-from django.db import models # type: ignore
-from appointments.models import Appointment
+# patients/models.py
+from django.db import models
 from doctors.models import Doctor
-# Create your models here.
+from appointments.models import Appointment
 
 class Patient(models.Model):
     first_name = models.CharField(max_length=255)
@@ -17,8 +17,8 @@ class Patient(models.Model):
     reg_no = models.CharField(max_length=255, unique=True)  
 
     def __str__(self):
-        return f"{self.first_name} {self.last_name} ({self.reg_no})"
-    
+        return f"{self.first_name} {self.last_name} ({self.reg_no})" 
+
 class Medical_Record(models.Model):
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
     doctor = models.ForeignKey(Doctor, on_delete=models.SET_NULL, null=True, blank=True)
