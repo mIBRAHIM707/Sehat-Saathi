@@ -40,6 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',  
     'corsheaders', 
+    'patients', 
+    'doctors', 
+    'appointments',
+    'billing',
 ]
 
 MIDDLEWARE = [
