@@ -1,8 +1,8 @@
 # filepath: accounts/models.py
-from django.db import models 
-from django.contrib.auth.models import AbstractUser 
+from django.db import models
+from django.contrib.auth.models import AbstractUser, PermissionsMixin
 
-class User(AbstractUser):
+class User(AbstractUser, PermissionsMixin):
     USER_TYPE_CHOICES = (
         ('patient', 'Patient'),
         ('doctor', 'Doctor'),
