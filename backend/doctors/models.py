@@ -5,10 +5,11 @@ from django.dispatch import receiver
 from accounts.models import User
 from django.core.mail import send_mail
 import uuid
+from accounts.fields import SequenceField
 
 class Doctor(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
-    employee_id = models.CharField(max_length=20, unique=True)
+    employee_id = SequenceField(sequence_name='doctor_employee_id_seq', prefix='DR-', max_length=20)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     specialization = models.CharField(max_length=100)
