@@ -75,8 +75,12 @@ WSGI_APPLICATION = 'hms_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',  # Use PostgreSQL adapter
+        'NAME': 'hms_db',  # Replace with your database name in PostgreSQL (e.g., 'hms_backend_db')
+        'USER': 'postgres',  # Replace with your PostgreSQL username (e.g., 'postgres')
+        'PASSWORD': '123',  # Replace with your PostgreSQL password
+        'HOST': '172.22.192.1',  # Typically 'localhost' if PostgreSQL is on the same machine
+        'PORT': '5432',  # Default PostgreSQL port is 5432
     }
 }
 
