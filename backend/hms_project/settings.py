@@ -85,11 +85,11 @@ WSGI_APPLICATION = 'hms_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': os.environ.get('DATABASE_ENGINE', 'django.db.backends.postgresql_psycopg2'), # Default to PostgreSQL if not found in .env
-        'NAME': os.environ.get('DATABASE_NAME', 'hms_db'),       # Default to 'hms_db' if not found
-        'USER': os.environ.get('DATABASE_USER', 'your_default_user'), # Provide a default user (less secure, but can be helpful for initial setup)
-        'PASSWORD': os.environ.get('DATABASE_PASSWORD', 'your_default_password'), # Provide a default password (less secure)
-        'HOST': os.environ.get('DATABASE_HOST', 'localhost'),     # Default to 'localhost'
-        'PORT': os.environ.get('DATABASE_PORT', '5432'),       # Default to '5432'
+        'NAME': os.environ.get('DB_NAME', 'hms_db'),       # Default to 'hms_db' if not found
+        'USER': os.environ.get('DB_USER'), # Provide a default user (less secure, but can be helpful for initial setup)
+        'PASSWORD': os.environ.get('DB_PASSWORD'), # Provide a default password (less secure)
+        'HOST': os.environ.get('DB_HOST'),     # Default to 'localhost'
+        'PORT': os.environ.get('DB_PORT'),       # Default to '5432'
     }
 }
 
