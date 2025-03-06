@@ -37,6 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'hms_app',         # Core HMS app for models
+    'doctor_app',      # Doctor features
+    'patient_app',     # Patient features
+    'receptionist_app', # Receptionist features
+    'admin_app',       # Administrator features
 ]
 
 MIDDLEWARE = [
