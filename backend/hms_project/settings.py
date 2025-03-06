@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -80,12 +84,12 @@ WSGI_APPLICATION = 'hms_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',  # Use PostgreSQL adapter
-        'NAME': 'hms_db',  # Replace with your database name in PostgreSQL (e.g., 'hms_backend_db')
-        'USER': 'postgres',  # Replace with your PostgreSQL username (e.g., 'postgres')
-        'PASSWORD': '123',  # Replace with your PostgreSQL password
-        'HOST': '172.22.192.1',  # Typically 'localhost' if PostgreSQL is on the same machine
-        'PORT': '5432',  # Default PostgreSQL port is 5432
+        'ENGINE': os.environ.get('DATABASE_ENGINE', 'django.db.backends.postgresql_psycopg2'), # Default to PostgreSQL if not found in .env
+        'NAME': os.environ.get('DATABASE_NAME', 'hms_db'),       # Default to 'hms_db' if not found
+        'USER': os.environ.get('DATABASE_USER', 'your_default_user'), # Provide a default user (less secure, but can be helpful for initial setup)
+        'PASSWORD': os.environ.get('DATABASE_PASSWORD', 'your_default_password'), # Provide a default password (less secure)
+        'HOST': os.environ.get('DATABASE_HOST', 'localhost'),     # Default to 'localhost'
+        'PORT': os.environ.get('DATABASE_PORT', '5432'),       # Default to '5432'
     }
 }
 
