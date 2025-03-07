@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Appointment</title>
+</head>
+<body>
+    <h1>Book an Appointment</h1>
+
+    <form method="post"> {% csrf_token %} <!-- Add CSRF token for form security -->
+        {{ form.as_p }} <!-- Render the form fields as paragraphs -->
+        <button type="submit">Book Appointment</button>
+    </form>
+
+</body>
+</html>
