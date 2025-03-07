@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Doctor Patient List</title>
+</head>
+<body>
+    <h1>Doctor's Patient List</h1>
+
+    {% if patients %} <!-- Check if there are patients -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Registration Number</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for patient in patients %} <!-- Loop through the patients list -->
+                    <tr>
+                        <td>{{ patient.reg_num }}</td> <!-- Access patient attributes using dot notation -->
+                        <td>{{ patient.first_name }}</td>
+                        <td>{{ patient.last_name }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %} <!-- If no patients -->
+        <p>No patients registered yet.</p>
+    {% endif %}
+
+</body>
+</html>
