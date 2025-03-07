@@ -1,8 +1,12 @@
 from django.shortcuts import render
-from hms_app.models import Patient # Import the Patient model
+from hms_app.models import Appointment  # Import the Appointment model
 
-def doctor_patient_list(request):
+def doctor_daily_schedule_view(request):
+    """View to display a doctor's daily schedule (initially showing all appointments)."""
+    appointments = Appointment.objects.all()  # Fetch all appointments for now
+    context = {'appointments': appointments}
+    return render(request, 'doctor_app/doctor_daily_schedule.html', context)
+
+def doctor_patient_list(request): # Keep this, or remove if you only want schedule for now
     """View to display a list of patients for a doctor."""
-    patients = Patient.objects.all() # Fetch all Patient objects from the database
-    context = {'patients': patients}  # Create a context dictionary to pass data to the template
-    return render(request, 'doctor_app/doctor_patient_list.html', context) # Pass the context to render
+    return render(request, 'doctor_app/doctor_patient_list.html')   

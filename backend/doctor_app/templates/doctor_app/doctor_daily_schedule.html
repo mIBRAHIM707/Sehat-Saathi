@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Doctor Daily Schedule</title>
+</head>
+<body>
+    <h1>Doctor's Daily Schedule</h1>
+
+    {% if appointments %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Appointment ID</th>
+                    <th>Patient</th>
+                    <th>Doctor</th>
+                    <th>Date & Time</th>
+                    <th>Reason</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for appointment in appointments %}
+                    <tr>
+                        <td>{{ appointment.appointment_id }}</td>
+                        <td>{{ appointment.patient }}</td>  <!-- Patient's __str__ method will be used -->
+                        <td>{{ appointment.doctor }}</td>   <!-- Doctor's __str__ method -->
+                        <td>{{ appointment.appointment_date }}</td>
+                        <td>{{ appointment.reason }}</td>
+                        <td>{{ appointment.status }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No appointments scheduled yet.</p>
+    {% endif %}
+
+</body>
+</html>
