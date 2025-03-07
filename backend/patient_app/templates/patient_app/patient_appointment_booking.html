@@ -6,8 +6,16 @@
 <body>
     <h1>Book an Appointment</h1>
 
-    <form method="post"> {% csrf_token %} <!-- Add CSRF token for form security -->
-        {{ form.as_p }} <!-- Render the form fields as paragraphs -->
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <form method="post"> {% csrf_token %}
+        {{ form.as_p }}
         <button type="submit">Book Appointment</button>
     </form>
 

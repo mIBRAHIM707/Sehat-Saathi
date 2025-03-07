@@ -6,6 +6,14 @@
 <body>
     <h1>Patient Registration</h1>
 
+    {% if messages %} <!-- Check if there are messages to display -->
+        <ul class="messages">
+            {% for message in messages %} <!-- Loop through messages -->
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li> <!-- Display each message in a list item -->
+            {% endfor %}
+        </ul>
+    {% endif %}
+
     <form method="post"> {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Register Patient</button>
