@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from hms_app.models import Appointment  # Import the Appointment model
+from django.contrib.auth.decorators import login_required # Import login_required
 
+@login_required 
 def doctor_daily_schedule_view(request):
     """View to display a doctor's daily schedule (initially showing all appointments)."""
     appointments = Appointment.objects.all()  # Fetch all appointments for now
