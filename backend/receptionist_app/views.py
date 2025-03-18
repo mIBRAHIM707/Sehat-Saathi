@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
 from .forms import PatientRegistrationForm
 from django.contrib import messages # Import messages framework for feedback
+from django.contrib.auth.decorators import login_required # Import login_required
 
+@login_required # Apply login_required decorator
 def receptionist_patient_registration_view(request):
     """View for receptionists to register new patients, handling form submission."""
     if request.method == 'POST': # Check if the request is a POST request (form submission)

@@ -2,7 +2,9 @@ from django.shortcuts import render, redirect
 from .forms import AppointmentBookingForm
 from hms_app.models import Appointment, Patient # Import Patient model as well
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required # Import login_required
 
+@login_required # Apply login_required decorator
 def patient_appointment_booking_view(request):
     """View for patients to book appointments, handling form submission."""
     try:

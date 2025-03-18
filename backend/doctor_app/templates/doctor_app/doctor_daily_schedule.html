@@ -4,7 +4,13 @@
     <title>Doctor Daily Schedule</title>
 </head>
 <body>
-    <h1>Doctor's Daily Schedule</h1>
+    <h1>Doctor's Daily Schedule
+        <span style="float:right;">
+            {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}">Logout</a>
+            {% endif %}
+        </span>
+    </h1>
 
     {% if appointments %}
         <table>
@@ -22,8 +28,8 @@
                 {% for appointment in appointments %}
                     <tr>
                         <td>{{ appointment.appointment_id }}</td>
-                        <td>{{ appointment.patient }}</td>  <!-- Patient's __str__ method will be used -->
-                        <td>{{ appointment.doctor }}</td>   <!-- Doctor's __str__ method -->
+                        <td>{{ appointment.patient }}</td>
+                        <td>{{ appointment.doctor }}</td>
                         <td>{{ appointment.appointment_date }}</td>
                         <td>{{ appointment.reason }}</td>
                         <td>{{ appointment.status }}</td>
